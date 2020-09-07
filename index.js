@@ -12,18 +12,23 @@ let varB = 'variable b';
 
 if (varA !== varB) {
     varA = varB;
-    console.log(varA);
+    console.log('varB assigned to varA: ' + varA);
 }
 
 
 //Task c: Convert string ("1999") to integer (1999)  (no function required) // hint look up the Number method
-
-
+console.log('Converted string to number: ' + Number('1999'));
 
 
 
 //Task d: Write a function to multiply a*b 
+function multiply(a,b) {
+    return a*b;
+}
+console.log('Regular Function: ' + multiply(2,5));
 
+let multiplyArrow = (a,b) => a * b;
+console.log('Arrow Function: ' + multiplyArrow(5,2));
 
 
 
