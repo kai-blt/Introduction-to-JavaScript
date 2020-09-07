@@ -36,8 +36,10 @@ console.log('Arrow Function: ' + multiplyArrow(5,2));
 /************************************************************** Task 2 **************************************************************/
 //Age in Dog years
 //write a function that takes your age and returns it to you in dog years - they say that 1 human year is equal to seven dog years 
-
-
+function toDogYears(age) {
+    return age * 7;
+}
+console.log('35 to dog years: ' + toDogYears(35));
 
 
 
@@ -58,7 +60,26 @@ console.log('Arrow Function: ' + multiplyArrow(5,2));
 // 7 - 12 months 4% of their body weight
 
 // when you are finished invoke your function with the weight of 15 lbs and the age of 1 year - if your calculations are correct your result should be 0.44999999999999996
-  
+function dogFoodCalculator(weight, age) {
+    if (age < .4 ) {
+    return weight * .1;
+    } else if ((age > .4 && age < .7)) {
+        return weight * .05;
+    } else if ((age > .7 && age < 1)) {
+        return weight * .04;
+    } else {
+        if (weight < 5) {
+            return weight * .05;
+        } else if (weight >= 6 && weight <= 10) {
+            return weight * .04;
+        } else if (weight >= 11 && weight <=15) {
+            return weight * .03;
+        } else {
+            return weight * .02;
+        }
+    }
+}
+console.log(dogFoodCalculator(15, 1));
 
 
 
