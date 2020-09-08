@@ -91,7 +91,54 @@ console.log(dogFoodCalculator(15, 1));
 // use math.random to determine the computers choice 
 // hint while you can complete this with only conditionals based on strings it may help to equate choice to a number 
 
-  
+
+/*Function to choose a number for AI between the minimum and maximum number given.
+It is inclusive, so it will include the lowest and highest value provided in the return.*/
+function aiChoice(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+
+
+function rockPaperScissors(playerChoice) {
+    /*Let ai choice be between 1 and 3. Result of 1 = rock, 2 = scissors, 3 = paper.*/
+    let ai = aiChoice(1,3);
+
+    switch (playerChoice)  {
+        case 'rock':
+            if (ai === 1) {
+                console.log('Tie. Player: rock - AI: rock. Try again!')
+            } else if (ai === 2) {
+                console.log('Win. Player: rock - AI: scissors.') 
+            } else {
+                console.log('Loss. Player: rock - AI: paper. Try again!') 
+            }
+            break;
+        case 'paper':
+            if (ai === 1) {
+                console.log('Win. Player: paper - AI: rock.')
+            } else if (ai === 2) {
+                console.log('Loss. Player: paper - AI: scissors. Try again!') 
+            } else {
+                console.log('Tie. Player: paper - AI: paper. Try again!') 
+            }
+            break;
+        case 'scissors':
+            if (ai === 1) {
+                console.log('Loss. Player: scissors - AI: rock. Try again!')
+            } else if (ai === 2) {
+                console.log('Tie. Player: scissors - AI: scissors. Try again!') 
+            } else {
+                console.log('Win. Player: scissors - AI: paper.') 
+            }
+            break;
+    }
+}
+
+
+
   
 
 /************************************************************** Task 5 **************************************************************/
