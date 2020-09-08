@@ -161,13 +161,14 @@ console.log('100 ft to cm is: ' + feetToCM(100));
 // 99 bottles of soda on the wall
 // create a function called annoyingSong
 // the function should take a starting number as an argument and count down - at each iteration it should log (number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall`
-function annoyingSong(number)   {
+
+function annoyingSong(number) {
     for (i = number; i > 0; i--) {
         console.log(i + ' bottles of soda on the wall, ' + i + ' bottles of soda, take one down pass it around ' + (i - 1) + ' bottles of soda on the wall.')
         
     }
 }
-
+/*Play song*/
 annoyingSong(10);
 
 
@@ -181,7 +182,21 @@ annoyingSong(10);
 //70s should be Cs 
 //60s should be D 
 //and anything below 60 should be F
-  
+function gradeCalc(grade) {
+    if (grade >= 90) {
+        console.log('Your grade is an A');
+    } else if (grade >= 80 && grade < 90) {
+        console.log('Your grade is a B');
+    } else if (grade >= 70 && grade < 80) {
+        console.log('Your grade is a c');
+    } else if (grade >= 60 && grade < 70) {
+        console.log('Your grade is a D');
+    } else {
+        console.log('Your grade is an F');
+    }
+}  
+/*Calculate Grades*/
+gradeCalc(100);
 
   
   
