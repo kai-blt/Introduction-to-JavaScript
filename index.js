@@ -107,36 +107,36 @@ function rockPaperScissors(playerChoice) {
     switch (playerChoice)  {
         case 'rock':
             if (ai === 1) {
-                console.log('Tie. Player: rock - AI: rock. Try again!')
+                return 'Tie. Player: rock - AI: rock. Try again!'
             } else if (ai === 2) {
-                console.log('Win. Player: rock - AI: scissors.') 
+                return 'Win. Player: rock - AI: scissors.'
             } else {
-                console.log('Loss. Player: rock - AI: paper. Try again!') 
+                return 'Loss. Player: rock - AI: paper. Try again!' 
             }
             break;
         case 'paper':
             if (ai === 1) {
-                console.log('Win. Player: paper - AI: rock.')
+                return 'Win. Player: paper - AI: rock.'
             } else if (ai === 2) {
-                console.log('Loss. Player: paper - AI: scissors. Try again!') 
+                return 'Loss. Player: paper - AI: scissors. Try again!' 
             } else {
-                console.log('Tie. Player: paper - AI: paper. Try again!') 
+               return 'Tie. Player: paper - AI: paper. Try again!' 
             }
             break;
         case 'scissors':
             if (ai === 1) {
-                console.log('Loss. Player: scissors - AI: rock. Try again!')
+                return 'Loss. Player: scissors - AI: rock. Try again!'
             } else if (ai === 2) {
-                console.log('Tie. Player: scissors - AI: scissors. Try again!') 
+                return 'Tie. Player: scissors - AI: scissors. Try again!' 
             } else {
-                console.log('Win. Player: scissors - AI: paper.') 
+                return 'Win. Player: scissors - AI: paper.'
             }
             break;
     }
 }
 
 /*Play the game*/
-rockPaperScissors('rock');
+console.log(rockPaperScissors('rock'));
 
 
   
@@ -163,9 +163,8 @@ console.log('100 ft to cm is: ' + feetToCM(100));
 // the function should take a starting number as an argument and count down - at each iteration it should log (number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall`
 
 function annoyingSong(number) {
-    for (i = number; i > 0; i--) {
+    for (let i = number; i > 0; i--) {
         console.log(i + ' bottles of soda on the wall, ' + i + ' bottles of soda, take one down pass it around ' + (i - 1) + ' bottles of soda on the wall.')
-        
     }
 }
 /*Play song*/
@@ -184,19 +183,19 @@ annoyingSong(10);
 //and anything below 60 should be F
 function gradeCalc(grade) {
     if (grade >= 90) {
-        console.log('Your grade is an A');
+        return 'Your grade is an A';
     } else if (grade >= 80 && grade < 90) {
-        console.log('Your grade is a B');
+        return 'Your grade is a B';
     } else if (grade >= 70 && grade < 80) {
-        console.log('Your grade is a c');
+        return 'Your grade is a c';
     } else if (grade >= 60 && grade < 70) {
-        console.log('Your grade is a D');
+        return 'Your grade is a D';
     } else {
-        console.log('Your grade is an F');
+        return 'Your grade is an F';
     }
 }  
 /*Calculate Grades*/
-gradeCalc(100);
+console.log(gradeCalc(100));
 
   
   
@@ -205,6 +204,23 @@ gradeCalc(100);
 //Create a function that counts the number of vowels within a string. It should handle both capitalized and uncapitalized vowels.
 // Hint - you may need to study tomorrow's traning kit on arrays 
 // try looking up the .includes() method
+
+function countVowels(string) {
+    let count = 0;
+    let vowels = ['a','e','i','o','u'];
+    let stringLower = string.toLowerCase();
+    let stringArray = stringLower.split('');
+    
+    for (let i = 0; i < vowels.length; i++) {    
+        for (let j = 0; j < stringArray.length; j++) {  
+           if (stringArray[j] === vowels[i]) {
+                count++;
+           }
+        }  
+    }  
+   return 'There are ' + count + ' vowels in the word: ' + string;    
+}
+console.log(countVowels('Test Vowels'));
 
 
 
