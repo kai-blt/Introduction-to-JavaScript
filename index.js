@@ -230,7 +230,50 @@ console.log(countVowels('Test Vowels'));
 //Take Rock, Paper, Sissors further
 //update your rock papers sissors code below to take a prompt from a user using the window object
 
+function aiChoice(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
+function rockPaperScissors(playerChoice) {
+    /*Let ai choice be between 1 and 3. Result of 1 = rock, 2 = scissors, 3 = paper.*/
+    let ai = aiChoice(1,3);
+
+    switch (playerChoice)  {
+        case 'rock':
+            if (ai === 1) {
+                return 'Tie. Player: rock - AI: rock. Try again!'
+            } else if (ai === 2) {
+                return 'Win. Player: rock - AI: scissors.'
+            } else {
+                return 'Loss. Player: rock - AI: paper. Try again!' 
+            }
+            break;
+        case 'paper':
+            if (ai === 1) {
+                return 'Win. Player: paper - AI: rock.'
+            } else if (ai === 2) {
+                return 'Loss. Player: paper - AI: scissors. Try again!' 
+            } else {
+               return 'Tie. Player: paper - AI: paper. Try again!' 
+            }
+            break;
+        case 'scissors':
+            if (ai === 1) {
+                return 'Loss. Player: scissors - AI: rock. Try again!'
+            } else if (ai === 2) {
+                return 'Tie. Player: scissors - AI: scissors. Try again!' 
+            } else {
+                return 'Win. Player: scissors - AI: paper.'
+            }
+            break;
+    }
+}
+
+/*Play the game*/
+let input = prompt('Please enter rock, paper or scissors');
+console.log(rockPaperScissors(input));
 
 
 
