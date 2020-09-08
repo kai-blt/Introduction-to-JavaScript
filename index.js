@@ -100,8 +100,6 @@ function aiChoice(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-
-
 function rockPaperScissors(playerChoice) {
     /*Let ai choice be between 1 and 3. Result of 1 = rock, 2 = scissors, 3 = paper.*/
     let ai = aiChoice(1,3);
@@ -137,6 +135,8 @@ function rockPaperScissors(playerChoice) {
     }
 }
 
+/*Play the game*/
+rockPaperScissors('rock');
 
 
   
@@ -144,13 +144,15 @@ function rockPaperScissors(playerChoice) {
 /************************************************************** Task 5 **************************************************************/
 //Metric Converter
 //a. KM to Miles - should take the number of kilometers and convert it to the equal number of miles
-
+const kmToMiles = (km) => km * 0.621371;
+console.log('100 km to mi is: ' + kmToMiles(100));
 
 
 
 
 //b. Feet to CM - should take the number of feet and convert it to the equal number of centimeters
-  
+const feetToCM = (feet) => feet * 30.48;
+console.log('100 ft to cm is: ' + feetToCM(100));  
 
 
 
