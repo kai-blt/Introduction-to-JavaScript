@@ -1,24 +1,34 @@
 /************************************************************** Task 1: Warm-up! **************************************************************/
 //Task a: declare a variable called votingAge, console log true if age > 18 (no function required)
-
-
-
+let votingAge = 35;
+if (votingAge > 18) {
+    console.log('true');
+}
 
 
 //Task b: declare a variable and then use a conditional to change the value of that variable based on the value assigned to a second variable (no function required)
+let varA = 'variable a';
+let varB = 'variable b';
 
-
-
+if (varA !== varB) {
+    varA = varB;
+    console.log('varB assigned to varA: ' + varA);
+}
 
 
 //Task c: Convert string ("1999") to integer (1999)  (no function required) // hint look up the Number method
-
-
+console.log('Converted string to number: ' + Number('1999'));
 
 
 
 //Task d: Write a function to multiply a*b 
+function multiply(a,b) {
+    return a*b;
+}
+console.log('Regular Function: ' + multiply(2,5));
 
+let multiplyArrow = (a,b) => a * b;
+console.log('Arrow Function: ' + multiplyArrow(5,2));
 
 
 
@@ -26,8 +36,10 @@
 /************************************************************** Task 2 **************************************************************/
 //Age in Dog years
 //write a function that takes your age and returns it to you in dog years - they say that 1 human year is equal to seven dog years 
-
-
+function toDogYears(age) {
+    return age * 7;
+}
+console.log('35 to dog years: ' + toDogYears(35));
 
 
 
@@ -48,7 +60,26 @@
 // 7 - 12 months 4% of their body weight
 
 // when you are finished invoke your function with the weight of 15 lbs and the age of 1 year - if your calculations are correct your result should be 0.44999999999999996
-  
+function dogFoodCalculator(weight, age) {
+    if (age < .4 ) {
+    return weight * .1;
+    } else if ((age > .4 && age < .7)) {
+        return weight * .05;
+    } else if ((age > .7 && age < 1)) {
+        return weight * .04;
+    } else {
+        if (weight < 5) {
+            return weight * .05;
+        } else if (weight >= 6 && weight <= 10) {
+            return weight * .04;
+        } else if (weight >= 11 && weight <=15) {
+            return weight * .03;
+        } else {
+            return weight * .02;
+        }
+    }
+}
+console.log(dogFoodCalculator(15, 1));
 
 
 
@@ -60,19 +91,68 @@
 // use math.random to determine the computers choice 
 // hint while you can complete this with only conditionals based on strings it may help to equate choice to a number 
 
-  
+
+/*Function to choose a number for AI between the minimum and maximum number given.
+It is inclusive, so it will include the lowest and highest value provided in the return.*/
+function aiChoice(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function rockPaperScissors(playerChoice) {
+    /*Let ai choice be between 1 and 3. Result of 1 = rock, 2 = scissors, 3 = paper.*/
+    let ai = aiChoice(1,3);
+
+    switch (playerChoice)  {
+        case 'rock':
+            if (ai === 1) {
+                return 'Tie. Player: rock - AI: rock. Try again!'
+            } else if (ai === 2) {
+                return 'Win. Player: rock - AI: scissors.'
+            } else {
+                return 'Loss. Player: rock - AI: paper. Try again!' 
+            }
+            break;
+        case 'paper':
+            if (ai === 1) {
+                return 'Win. Player: paper - AI: rock.'
+            } else if (ai === 2) {
+                return 'Loss. Player: paper - AI: scissors. Try again!' 
+            } else {
+               return 'Tie. Player: paper - AI: paper. Try again!' 
+            }
+            break;
+        case 'scissors':
+            if (ai === 1) {
+                return 'Loss. Player: scissors - AI: rock. Try again!'
+            } else if (ai === 2) {
+                return 'Tie. Player: scissors - AI: scissors. Try again!' 
+            } else {
+                return 'Win. Player: scissors - AI: paper.'
+            }
+            break;
+    }
+}
+
+/*Play the game*/
+console.log(rockPaperScissors('rock'));
+
+
   
 
 /************************************************************** Task 5 **************************************************************/
 //Metric Converter
 //a. KM to Miles - should take the number of kilometers and convert it to the equal number of miles
-
+const kmToMiles = (km) => km * 0.621371;
+console.log('100 km to mi is: ' + kmToMiles(100));
 
 
 
 
 //b. Feet to CM - should take the number of feet and convert it to the equal number of centimeters
-  
+const feetToCM = (feet) => feet * 30.48;
+console.log('100 ft to cm is: ' + feetToCM(100));  
 
 
 
@@ -81,7 +161,14 @@
 // 99 bottles of soda on the wall
 // create a function called annoyingSong
 // the function should take a starting number as an argument and count down - at each iteration it should log (number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall`
-  
+
+function annoyingSong(number) {
+    for (let i = number; i > 0; i--) {
+        console.log(i + ' bottles of soda on the wall, ' + i + ' bottles of soda, take one down pass it around ' + (i - 1) + ' bottles of soda on the wall.')
+    }
+}
+/*Play song*/
+annoyingSong(10);
 
 
 
@@ -94,7 +181,21 @@
 //70s should be Cs 
 //60s should be D 
 //and anything below 60 should be F
-  
+function gradeCalc(grade) {
+    if (grade >= 90) {
+        return 'Your grade is an A';
+    } else if (grade >= 80 && grade < 90) {
+        return 'Your grade is a B';
+    } else if (grade >= 70 && grade < 80) {
+        return 'Your grade is a c';
+    } else if (grade >= 60 && grade < 70) {
+        return 'Your grade is a D';
+    } else {
+        return 'Your grade is an F';
+    }
+}  
+/*Calculate Grades*/
+console.log(gradeCalc(100));
 
   
   
@@ -104,6 +205,23 @@
 // Hint - you may need to study tomorrow's traning kit on arrays 
 // try looking up the .includes() method
 
+function countVowels(string) {
+    let count = 0;
+    let vowels = ['a','e','i','o','u'];
+    let stringLower = string.toLowerCase();
+    let stringArray = stringLower.split('');
+    
+    for (let i = 0; i < vowels.length; i++) {    
+        for (let j = 0; j < stringArray.length; j++) {  
+           if (stringArray[j] === vowels[i]) {
+                count++;
+           }
+        }  
+    }  
+   return 'There are ' + count + ' vowels in the word: ' + string;    
+}
+console.log(countVowels('Test Vowels'));
+
 
 
 
@@ -112,7 +230,50 @@
 //Take Rock, Paper, Sissors further
 //update your rock papers sissors code below to take a prompt from a user using the window object
 
+function aiChoice(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
+function rockPaperScissors(playerChoice) {
+    /*Let ai choice be between 1 and 3. Result of 1 = rock, 2 = scissors, 3 = paper.*/
+    let ai = aiChoice(1,3);
+
+    switch (playerChoice)  {
+        case 'rock':
+            if (ai === 1) {
+                return 'Tie. Player: rock - AI: rock. Try again!'
+            } else if (ai === 2) {
+                return 'Win. Player: rock - AI: scissors.'
+            } else {
+                return 'Loss. Player: rock - AI: paper. Try again!' 
+            }
+            break;
+        case 'paper':
+            if (ai === 1) {
+                return 'Win. Player: paper - AI: rock.'
+            } else if (ai === 2) {
+                return 'Loss. Player: paper - AI: scissors. Try again!' 
+            } else {
+               return 'Tie. Player: paper - AI: paper. Try again!' 
+            }
+            break;
+        case 'scissors':
+            if (ai === 1) {
+                return 'Loss. Player: scissors - AI: rock. Try again!'
+            } else if (ai === 2) {
+                return 'Tie. Player: scissors - AI: scissors. Try again!' 
+            } else {
+                return 'Win. Player: scissors - AI: paper.'
+            }
+            break;
+    }
+}
+
+/*Play the game*/
+let input = prompt('Please enter rock, paper or scissors');
+console.log(rockPaperScissors(input));
 
 
 
